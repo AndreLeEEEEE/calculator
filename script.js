@@ -3,40 +3,55 @@ const subtract = (x, y) => x - y;
 const multiple = (x, y) => x * y;
 const divide = (x, y) => x / y;
 
-function operate(operator, y) {
-    switch(operator) {
-        case "+": 
-            add(displayValue, y);
-            break;
-        case "-":
-            subtract(displayValue, y);
-            break;
-        case "*":
-            multiply(displayValue, y);
-            break;
-        case "/":
-            divide(displayValue, y);
-            break;
-        default:
-            alert("No operator")
+function operate(currentOperator) {
+    storedValue = getDisplay();
+    if (storedOperator) {
+        switch(storedOperator) {
+            case "+": 
+                displayValue = add(storedValue, displayValue);
+                break;
+            case "-":
+                subtract(storedValue, displayValue);
+                break;
+            case "*":
+                multiply(storedValue, displayValue);
+                break;
+            case "/":
+                divide(storedValue, displayValue);
+                break;
+            default:
+                alert("Unreached")
+        }
     }
+    else {storedOperator = currentOperator;}
 }
 
 function pressNumber(numberKey) {
-    displayValue = numberKey;
-    document.querySelector("#display").textContent = displayValue;
+    updateDisplay(numberKey);
 }
 
 function clearDisplay() {
-    displayValue = "";
+    updateDisplay("", true);
+}
+
+function updateDisplay(displayValue, replaceDisplay = false) {
+    if (!replaceDisplay) {
+        let tempDisplay = document.querySelector("#display").textContent
+        displayValue = tempDisplay.toString() + displayValue.toString();
+    }
     document.querySelector("#display").textContent = displayValue;
 }
 
-let displayValue;
+function getDisplay() {
+    return Number(document.querySelector("#display").textContent)
+}
+
+let storedValue;
+let storedOperator;
 
 /*
-Get number, put number into displayValue and currentValue
-Get operator, get ready to call correct function, update displayValue, wait for next number
+Get number, put number into displayValue 
+Get operator, store displayValue into storedValue
 Get number, put number into currentValue, apply operator to displayValue and currentValue
 Repeat the previous two steps for some amount of time
 On equal, finalize displayValue

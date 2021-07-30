@@ -2,12 +2,14 @@
     display: grid;
     height: 450px;
     width: 400px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     grid-template-areas: 
-        "display display display"
-        "add subtract clr"
-        "multiply divide equal";
+        "display display display display"
+        "seven eight nine divide"
+        "four five six multiply"
+        "one two three subtract"
+        "clr zero equal add";
     gap: 3px;
     margin: auto;
     font-family: 'Courier New', Courier, monospace;
@@ -19,7 +21,7 @@ button {
     border-width: 2px;
     background-color: white;
     color: black;
-    font-size: 50px;
+    font-size: 20px;
 }
 
 button:hover {
@@ -36,9 +38,19 @@ button:active {
     border-style: solid;
     border-width: 2px;
     text-align: end;
-    font-size: 135px;
+    font-size: 73px;
 }
 
+#zero {grid-area: zero;}
+#one {grid-area: one;}
+#two {grid-area: two;}
+#three {grid-area: three;}
+#four {grid-area: four;}
+#five {grid-area: five;}
+#six {grid-area: six;}
+#seven {grid-area: seven;}
+#eight {grid-area: eight;}
+#nine {grid-area: nine;}
 #add {grid-area: add;}
 #subtract {grid-area: subtract;}
 #clr {grid-area: clr;}

@@ -1,0 +1,45 @@
+.calculator {
+    display: grid;
+    height: 600px;
+    width: 500px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+        "display display display"
+        "add subtract clr"
+        "multiply divide equal";
+    gap: 3px;
+    margin-top: 10%;
+}
+
+button {
+    background-color:aqua;
+}
+
+#display {
+    grid-area: display;
+}
+
+#add {
+    grid-area: add;
+}
+
+#subtract {
+    grid-area: subtract;
+}
+
+#clr {
+    grid-area: clr;
+}
+
+#multiply {
+    grid-area: multiply;
+}
+
+#divide {
+    grid-area: divide;
+}
+
+#equal {
+    grid-area: equal;
+}

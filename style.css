@@ -19,19 +19,53 @@ button {
     border-style: solid;
     border-color: black;
     border-width: 2px;
-    background-color: white;
     color: black;
     font-size: 20px;
 }
 
-button:hover {
+button.number {
+    background-color: white;
+}
+.number:hover {
     background-color: gray;
 }
-button:active {
+.number:active {
     background-color: black;
     color: white;
 }
 
+button.operator {
+    background-color: cyan;
+}
+.operator:hover {
+    background-color: rgb(0, 212, 212);
+}
+.operator:active {
+    background-color: rgb(0, 177, 177);
+    color: white;
+}
+
+button.equal {
+    background-color: greenyellow;
+}
+.equal:hover {
+    background-color: rgb(139, 207, 37);
+}
+.equal:active {
+    background-color: rgb(116, 172, 34);
+    color: white;
+}
+
+button.clear {
+    background-color: rgb(204, 204, 204);
+}
+.clear:hover {
+    background-color: rgb(158, 158, 158);
+}
+.clear:active {
+    background-color: rgb(114, 114, 114);
+    color: white;
+}
 
 #display {
     grid-area: display;

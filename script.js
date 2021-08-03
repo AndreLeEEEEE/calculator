@@ -57,6 +57,7 @@ function updateDisplay(displayValue, replaceDisplay = false) {
         displayValue = tempDisplay.toString() + displayValue.toString();
     }
     isNumber = true;
+    displayValue = Math.round(displayValue * 100) / 100;
     document.querySelector("#display").textContent = displayValue;
 }
 
@@ -72,11 +73,3 @@ function equalizeValues(currentOperator) {
 let storedValue = null;
 let storedOperator = null;
 let isNumber = true;
-
-/*
-Get number, put number into displayValue 
-Get operator, store displayValue into storedValue
-Get number, put number into currentValue, apply operator to displayValue and currentValue
-Repeat the previous two steps for some amount of time
-On equal, finalize displayValue
- */

@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="calculator">
-        <div id="display">331</div>
+        <div id="display"></div>
         <button type="button" id="zero" onclick="pressNumber(0)">0</button>
         <button type="button" id="one" onclick="pressNumber(1)">1</button>
         <button type="button" id="two" onclick="pressNumber(2)">2</button>
@@ -19,12 +19,12 @@
         <button type="button" id="seven" onclick="pressNumber(7)">7</button>
         <button type="button" id="eight" onclick="pressNumber(8)">8</button>
         <button type="button" id="nine" onclick="pressNumber(9)">9</button>
-        <button type="button" id="add" onclick="operate()">+</button>
-        <button type="button" id="subtract" onclick="operate()">-</button>
+        <button type="button" id="add" onclick="operate('+x')">+</button>
+        <button type="button" id="subtract" onclick="operate('-')">-</button>
         <button type="button" id="clr" onclick="clearDisplay()">C</button>
-        <button type="button" id="multiply" onclick="operate()">*</button>
-        <button type="button" id="divide" onclick="operate()">/</button>
-        <button type="button" id="equal">=</button>
+        <button type="button" id="multiply" onclick="operate('*')">*</button>
+        <button type="button" id="divide" onclick="operate('/')">/</button>
+        <button type="button" id="equal" onclick="pressEqual()">=</button>
     </div>
 </body>
 </html>

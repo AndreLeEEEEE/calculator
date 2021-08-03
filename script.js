@@ -7,23 +7,32 @@ function operate(currentOperator) {
     storedValue = getDisplay();
     if (storedOperator) {
         switch(storedOperator) {
-            case "+": 
-                displayValue = add(storedValue, displayValue);
+            case "+":
+                alert(storedValue);
+                alert(getDisplay());
+                updateDisplay(add(storedValue, getDisplay()));
                 break;
             case "-":
-                subtract(storedValue, displayValue);
+                updateDisplay(subtract(storedValue, getDisplay()));
                 break;
             case "*":
-                multiply(storedValue, displayValue);
+                updateDisplay(multiply(storedValue, getDisplay()));
                 break;
             case "/":
-                divide(storedValue, displayValue);
+                updateDisplay(divide(storedValue, getDisplay()));
                 break;
             default:
                 alert("Unreached")
         }
+        storedOperator = "";
     }
     else {storedOperator = currentOperator;}
+}
+
+function pressEqual() {
+    if (storedOperator) {
+        operate();
+    }
 }
 
 function pressNumber(numberKey) {
@@ -32,6 +41,8 @@ function pressNumber(numberKey) {
 
 function clearDisplay() {
     updateDisplay("", true);
+    storedValue = "";
+    storedOperator = "";
 }
 
 function updateDisplay(displayValue, replaceDisplay = false) {

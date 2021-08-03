@@ -1,64 +1,70 @@
 const add = (x, y) => x + y;
 const subtract = (x, y) => x - y;
-const multiple = (x, y) => x * y;
+const multiply = (x, y) => x * y;
 const divide = (x, y) => x / y;
 
 function operate(currentOperator) {
-    storedValue = getDisplay();
     if (storedOperator) {
         switch(storedOperator) {
             case "+":
-                alert(storedValue);
-                alert(getDisplay());
-                updateDisplay(add(storedValue, getDisplay()));
+                updateDisplay(add(storedValue, getDisplay()), true);
                 break;
             case "-":
-                updateDisplay(subtract(storedValue, getDisplay()));
+                updateDisplay(subtract(storedValue, getDisplay()), true);
                 break;
             case "*":
-                updateDisplay(multiply(storedValue, getDisplay()));
+                updateDisplay(multiply(storedValue, getDisplay()), true);
                 break;
             case "/":
-                updateDisplay(divide(storedValue, getDisplay()));
+                updateDisplay(divide(storedValue, getDisplay()), true);
                 break;
             default:
-                alert("Unreached")
+                alert("Unreached");
         }
-        storedOperator = "";
+        if (currentOperator !== null) {equalizeValues(currentOperator);}
+        else {storedOperator = null;}
     }
-    else {storedOperator = currentOperator;}
+    else {equalizeValues(currentOperator);}
+    isNumber = false;
 }
 
 function pressEqual() {
-    if (storedOperator) {
+    if (storedOperator && isNumber) {
         operate();
     }
 }
 
 function pressNumber(numberKey) {
-    updateDisplay(numberKey);
+    isNumber ? updateDisplay(numberKey) : updateDisplay(numberKey, true);
 }
 
 function clearDisplay() {
     updateDisplay("", true);
-    storedValue = "";
-    storedOperator = "";
+    storedValue = null;
+    storedOperator = null;
 }
 
 function updateDisplay(displayValue, replaceDisplay = false) {
     if (!replaceDisplay) {
-        let tempDisplay = document.querySelector("#display").textContent
+        let tempDisplay = document.querySelector("#display").textContent;
         displayValue = tempDisplay.toString() + displayValue.toString();
     }
+    isNumber = true;
     document.querySelector("#display").textContent = displayValue;
 }
 
 function getDisplay() {
-    return Number(document.querySelector("#display").textContent)
+    return Number(document.querySelector("#display").textContent);
 }
 
-let storedValue;
-let storedOperator;
+function equalizeValues(currentOperator) {
+    storedOperator = currentOperator;
+    storedValue = getDisplay();
+}
+
+let storedValue = null;
+let storedOperator = null;
+let isNumber = true;
 
 /*
 Get number, put number into displayValue 

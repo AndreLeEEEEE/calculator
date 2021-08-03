@@ -3,7 +3,7 @@ const subtract = (x, y) => x - y;
 const multiply = (x, y) => x * y;
 const divide = function(x, y) {
     if (y === 0) {
-        alert("Error: Cannot divide by 0");
+        alert("Error: Don't divide by 0");
         clearDisplay();
         return;
     }

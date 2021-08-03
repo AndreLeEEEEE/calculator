@@ -1,7 +1,14 @@
 const add = (x, y) => x + y;
 const subtract = (x, y) => x - y;
 const multiply = (x, y) => x * y;
-const divide = (x, y) => x / y;
+const divide = function(x, y) {
+    if (y === 0) {
+        alert("Error: Cannot divide by 0");
+        clearDisplay();
+        return;
+    }
+    return x / y;
+}
 
 function operate(currentOperator) {
     if (storedOperator) {
